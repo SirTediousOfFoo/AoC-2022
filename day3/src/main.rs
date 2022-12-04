@@ -37,7 +37,6 @@ fn main() {
         for truples in lines_str.chunks(3) {
             for character in truples[0].chars() {
                 if truples[1].contains(character) && truples[2].contains(character) {
-                    flag == true;
                     score = score + alphabet.get(&character).copied().unwrap();
                     break;
                 }
