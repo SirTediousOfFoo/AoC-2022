@@ -30,11 +30,9 @@ fn main() {
                 vector.push(c);
             }
         }
-
         vector2.push(vector)
     }
 
- //    let x = 0;
     let mut t = vec![Vec::with_capacity(vector2.len()); vector2[0].len()];
     for r in vector2.to_owned() {
         for i in 0..r.len() {
@@ -65,11 +63,9 @@ fn main() {
         }
 
         if v.len().ne(&0) {
-          
             for _i in 0..(v[0].to_string().parse::<i32>().unwrap()) {
                 fin = part1(fin, v[1], v[2]);           
             }                
-            
             fin2 = part2(fin2,v[0],v[1], v[2]);  
         }
     }
@@ -99,23 +95,14 @@ fn part1(mut vec: Vec<Vec<char>>, from: &str, to: &str) -> Vec<Vec<char>> {
 fn part2(mut vec: Vec<Vec<char>>,mv: &str, from: &str, to: &str) -> Vec<Vec<char>> {
     let mut block = Vec::new();
     let range = mv.to_string().parse::<usize>().unwrap();
- //   println!("Before: {:?}",vec);
 
     for i in 0..range {
         let c = vec[from.to_string().parse::<usize>().unwrap()-1][0];
         vec[from.to_string().parse::<usize>().unwrap()-1].remove(0);
-    //    block.insert(0, c);
         block.push(c);
     }
-  //  println!("Block: {:?}",block);
-
-    // for _i in 0..range {
-    //      vec[from.to_string().parse::<usize>().unwrap()-1].remove(0);
-    // }
-    
+ 
     vec[to.to_string().parse::<usize>().unwrap()-1].splice(0..0, block);
-   // vec[to.to_string().parse::<usize>().unwrap()-1].append(&mut block);
- //   println!("After {:?}",vec);
 
     return vec;
 }
